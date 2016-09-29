@@ -46,3 +46,7 @@ public class FilmDAO {
     public void modifier(Film f){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();
+        em.merge(f);
+        em.getTransaction().commit();
+    }
+}
