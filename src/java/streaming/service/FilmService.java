@@ -19,4 +19,7 @@ public class FilmService {
         return new FilmDAO().listerFilms();
     }
     
+    public  void ajouter(Film f){
+        new FilmDAO().ajouter(f);
+    }
 }
