@@ -18,16 +18,24 @@
             <c:import url="_MENU.jsp"/>
         </menu>
         <div class="titre">
-            <h1>Liste de series</h1>
+            <h1>Ajouter films</h1>
         </div>
         <section>
-            <ul>
-                <c:forEach items="${mesSeries}" var="maSerie">
-                    <li>
-                        ${maSerie.titre}
-                    </li>
-                </c:forEach>
-            </ul>
+            <form method="POST">
+                <label>Titre:</label>
+                <input name="titre" type="text" />
+                <br/>
+                <label>Synopsis:</label>
+                <textarea name="synopsis"></textarea>
+                <br/>
+                <label>Année de production:</label>
+                <input name="anneeProd" type="text"/>
+                <br/>
+                <label>Durée: (en Minutes)</label>
+                <input name="duree" type="text"/>
+                <br/>
+                <input type="submit" value="Ajouter"/>
+            </form>
         </section>
         <footer>
             <c:import url="_PIED.jsp"/>

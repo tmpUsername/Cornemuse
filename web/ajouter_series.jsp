@@ -18,16 +18,18 @@
             <c:import url="_MENU.jsp"/>
         </menu>
         <div class="titre">
-            <h1>Liste de series</h1>
+            <h1>Ajouter séries</h1>
         </div>
         <section>
-            <ul>
-                <c:forEach items="${mesSeries}" var="maSerie">
-                    <li>
-                        ${maSerie.titre}
-                    </li>
-                </c:forEach>
-            </ul>
+            <form method="POST">
+                <label>Titre:</label>
+                <input name="titre" type="text" />
+                <br/>
+                <label>Synopsis:</label>
+                <textarea name="synopsis"></textarea>
+                <br/>
+                <input type="submit" value="Ajouter"/>
+            </form>
         </section>
         <footer>
             <c:import url="_PIED.jsp"/>

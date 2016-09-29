@@ -14,9 +14,9 @@
         <c:import url="_HEAD.jsp"/>
     </head>
     <body>
-        <div class="menu">
+        <menu class="menu">
             <c:import url="_MENU.jsp"/>
-        </div>
+        </menu>
         <div class="titre">
             <h1>Liste de films</h1>
         </div>
