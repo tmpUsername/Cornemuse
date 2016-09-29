@@ -23,4 +23,13 @@ public class FilmDAO {
         return em.createQuery("SELECT f FROM Film f ORDER BY f.id DESC").getResultList();
     }
     
+    public void ajouter(Film f){
+        EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
+        
+        em.getTransaction().begin();
+        
+        em.persist(f);
+        
+        em.getTransaction().commit();
+    }
 }
