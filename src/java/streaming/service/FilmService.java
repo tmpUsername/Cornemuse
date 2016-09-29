@@ -22,4 +22,16 @@ public class FilmService {
     public  void ajouter(Film f){
         new FilmDAO().ajouter(f);
     }
+    
+    public void supprimer(long id){
+        new FilmDAO().supprimer(id);
+    }
+    
+    public Film findByID(long id){
+        return new FilmDAO().findByID(id);
+    }
+    
+    public void modifier(Film f){
+        new FilmDAO().modifier(f);
+    }
 }
