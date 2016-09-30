@@ -6,12 +6,13 @@
 package streaming.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import streaming.entity.Serie;
+import streaming.service.SerieService;
 
 /**
  *
@@ -25,6 +26,16 @@ public class AjouterSerieServlet extends HttpServlet {
         req.getRequestDispatcher("ajouter_series.jsp").forward(req, resp);
     }
     
-    
+        @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ////on crée le film
+        Serie s = new Serie();
+        s.setTitre(req.getParameter("titre"));
+        s.setSynopsis(req.getParameter("synopsis"));
+        new SerieService().ajouter(s);
+        
+        //On redirige l'utilisateur
+        req.getRequestDispatcher("lister_series").forward(req, resp);
+    }
     
 }

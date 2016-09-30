@@ -12,13 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import streaming.service.FilmService;
 import streaming.service.SerieService;
 
 /**
  *
  * @author admin
  */
-@WebServlet(name = "ListerSeriesServlet", urlPatterns = {"/liste_series"})
+@WebServlet(name = "ListerSeriesServlet", urlPatterns = {"/lister_series"})
 public class ListerSeriesServlet extends HttpServlet {
 
     @Override
@@ -27,4 +28,9 @@ public class ListerSeriesServlet extends HttpServlet {
         req.getRequestDispatcher("lister_series.jsp").forward(req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("mesSeries", new SerieService().liste());
+        req.getRequestDispatcher("lister_series.jsp").forward(req, resp);
+    }
 }
