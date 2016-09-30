@@ -25,17 +25,17 @@ public class AjouterSerieServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("ajouter_series.jsp").forward(req, resp);
     }
-    
-        @Override
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ////on crée le film
         Serie s = new Serie();
         s.setTitre(req.getParameter("titre"));
         s.setSynopsis(req.getParameter("synopsis"));
         new SerieService().ajouter(s);
-        
+
         //On redirige l'utilisateur
         resp.sendRedirect("lister_series");
     }
-    
+
 }
