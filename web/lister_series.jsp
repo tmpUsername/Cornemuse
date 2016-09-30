@@ -24,7 +24,7 @@
             <ul>
                 <c:forEach items="${mesSeries}" var="maSerie">
                     <li>
-                        ${maSerie.titre}
+                        ${maSerie.titre} <a href="supprimmer_serie?id=${maSerie.id}">supprimer</a>
                     </li>
                 </c:forEach>
             </ul>
