@@ -35,7 +35,7 @@ public class AjouterSerieServlet extends HttpServlet {
         new SerieService().ajouter(s);
         
         //On redirige l'utilisateur
-        req.getRequestDispatcher("lister_series").forward(req, resp);
+        resp.sendRedirect("lister_series");
     }
     
 }

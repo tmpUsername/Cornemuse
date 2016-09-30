@@ -27,13 +27,6 @@ public class ListerFilmsServlet extends HttpServlet {
         req.setAttribute("mesFilms", new FilmService().lister());
         req.getRequestDispatcher("lister_films.jsp").forward(req, resp);
     }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("mesFilms", new FilmService().lister());
-        req.getRequestDispatcher("lister_films.jsp").forward(req, resp);
-    }
-
-    
+  
     
 }

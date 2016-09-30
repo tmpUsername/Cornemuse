@@ -28,9 +28,5 @@ public class ListerSeriesServlet extends HttpServlet {
         req.getRequestDispatcher("lister_series.jsp").forward(req, resp);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("mesSeries", new SerieService().liste());
-        req.getRequestDispatcher("lister_series.jsp").forward(req, resp);
-    }
+    
 }
