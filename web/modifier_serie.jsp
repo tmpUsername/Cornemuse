@@ -25,6 +25,20 @@
                 <label>Titre:</label>
                 <input name="titre" type="text" value="${maSerie.titre}"/>
                 <br/>
+                <label>Genre:</label>
+                <select name="genreID">
+                    <c:forEach items="${listeGenres}" var="genreAct">
+                        <c:choose >
+                            <c:when test="${genreAct.id==maSerie.genre.id}">
+                                <option value="${genreAct.id}" selected="selected">${genreAct.nom}</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${genreAct.id}">${genreAct.nom}</option>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </select>
+                <br/>
                 <label>Synopsis:</label>
                 <textarea name="synopsis">${maSerie.synopsis}</textarea>
                 <br/>

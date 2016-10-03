@@ -40,6 +40,7 @@ public class AjouterFilmServlet extends HttpServlet {
         f.setAnnee(Integer.valueOf(req.getParameter("anneeProd")));
         f.setDuree(Integer.valueOf(req.getParameter("duree")));
         f.setGenre(g);
+        g.getFilms().add(f);
         new FilmService().ajouter(f);
         
         //On redirige l'utilisateur

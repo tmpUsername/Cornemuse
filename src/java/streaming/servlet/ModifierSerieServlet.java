@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import streaming.entity.Serie;
+import streaming.service.GenreService;
 import streaming.service.SerieService;
 
 /**
@@ -26,6 +27,7 @@ public class ModifierSerieServlet extends HttpServlet {
         Serie s = new SerieService().findByID(Long.valueOf(req.getParameter("id")));
         
         req.setAttribute("maSerie", s);
+        req.setAttribute("listeGenres", new GenreService().lister());
         
         req.getRequestDispatcher("modifier_serie.jsp").forward(req, resp);
     }

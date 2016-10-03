@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import streaming.entity.Film;
 import streaming.service.FilmService;
+import streaming.service.GenreService;
 
 /**
  *
@@ -26,6 +27,7 @@ public class ModifierFilmServlet extends HttpServlet {
         Film f = new FilmService().findByID(Long.valueOf(req.getParameter("id")));
         
         req.setAttribute("monFilm", f);
+        req.setAttribute("listeGenres", new GenreService().lister());
         
         req.getRequestDispatcher("modifier_film.jsp").forward(req, resp);
     }
