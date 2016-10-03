@@ -19,7 +19,7 @@ public class GenreDAO {
     public List<Genre> lister(){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         
-        return em.createQuery("SELECT g FROM Genre g").getResultList();
+        return em.createQuery("SELECT g FROM Genre g ORDER BY g.nom").getResultList();
     }
 
     public Genre findByID(Long id) {
