@@ -18,16 +18,19 @@
             <c:import url="_MENU.jsp"/>
         </menu>
         <div class="titre">
-            <h1>Liste de series</h1>
+            titre
         </div>
         <section>
-            <ul>
-                <c:forEach items="${mesSeries}" var="maSerie">
-                    <li>
-                        ${maSerie.titre} <a href="supprimmer_serie?id=${maSerie.id}">supprimer</a> <a href="modifier_serie?id=${maSerie.id}">modifier</a>
-                    </li>
-                </c:forEach>
-            </ul>
+             <form method="POST">
+                <label>Titre:</label>
+                <input name="titre" type="text" value="${maSerie.titre}"/>
+                <br/>
+                <label>Synopsis:</label>
+                <textarea name="synopsis">${maSerie.synopsis}</textarea>
+                <br/>
+                <input type="hidden" value="${maSerie.id}" name="id"/>
+                <input type="submit" value="Modifier"/>
+            </form>
         </section>
         <footer>
             <c:import url="_PIED.jsp"/>
