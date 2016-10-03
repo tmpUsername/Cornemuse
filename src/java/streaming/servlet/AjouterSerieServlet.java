@@ -11,7 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import streaming.entity.Genre;
 import streaming.entity.Serie;
+import streaming.service.GenreService;
 import streaming.service.SerieService;
 
 /**
@@ -23,6 +25,7 @@ public class AjouterSerieServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("listeGenres", new GenreService().lister());
         req.getRequestDispatcher("ajouter_series.jsp").forward(req, resp);
     }
 
@@ -30,8 +33,10 @@ public class AjouterSerieServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ////on crée le film
         Serie s = new Serie();
+        Genre g = new GenreService().findByID(Long.valueOf(req.getParameter("genreID")));
         s.setTitre(req.getParameter("titre"));
         s.setSynopsis(req.getParameter("synopsis"));
+        s.setGenre(g);
         new SerieService().ajouter(s);
 
         //On redirige l'utilisateur

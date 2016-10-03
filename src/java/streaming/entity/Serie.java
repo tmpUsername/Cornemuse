@@ -105,6 +105,14 @@ public class Serie implements Serializable {
         this.pays = pays;
     }
 
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
