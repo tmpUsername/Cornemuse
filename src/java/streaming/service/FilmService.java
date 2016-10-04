@@ -14,34 +14,34 @@ import streaming.entity.Film;
  * @author admin
  */
 public class FilmService {
-    
-    public List<Film> lister(){
+
+    public List<Film> lister() {
         return new FilmDAO().listerFilms();
     }
-    
-    public  void ajouter(Film f){
+
+    public void ajouter(Film f) {
         new FilmDAO().ajouter(f);
     }
-    
-    public void ajouter(List<Film> films){
+
+    public void ajouter(List<Film> films) {
         FilmDAO dao = new FilmDAO();
-        
+
         films.forEach(film -> {
-            if (film.getTitre().length() > 0){
-                    dao.ajouter(film);
+            if (film.getTitre().length() > 0) {
+                dao.ajouter(film);
             }
         });
     }
-    
-    public void supprimer(long id){
+
+    public void supprimer(long id) {
         new FilmDAO().supprimer(id);
     }
-    
-    public Film findByID(long id){
+
+    public Film findByID(long id) {
         return new FilmDAO().findByID(id);
     }
-    
-    public void modifier(Film f){
+
+    public void modifier(Film f) {
         new FilmDAO().modifier(f);
     }
 }
