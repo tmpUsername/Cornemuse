@@ -9,30 +9,30 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import streaming.entity.Genre;
+import streaming.entity.Pays;
 
 /**
  *
  * @author admin
  */
-public class GenreDAO {
-    
-    public List<Genre> lister(){
+public class PaysDAO {
+     public List<Pays> lister(){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         
-        return em.createQuery("SELECT g FROM Genre g ORDER BY g.nom").getResultList();
+        return em.createQuery("SELECT p FROM Pays p ORDER BY p.nom").getResultList();
     }
 
-    public Genre findByID(Long id) {
+    public Pays findByID(Long id) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         
-        return em.find(Genre.class, id);
+        return em.find(Pays.class, id);
     }
     
-    public void ajouter(Genre g) {
+    public void ajouter(Pays p) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         
         em.getTransaction().begin();
-        em.persist(g);
+        em.persist(p);
         
         em.getTransaction().commit();
         
@@ -41,15 +41,15 @@ public class GenreDAO {
     public void supprimer(long id){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();
-        em.createQuery("DELETE FROM Genre g WHERE g.id=" + id).executeUpdate();
+        em.createQuery("DELETE FROM Pays p WHERE p.id=" + id).executeUpdate();
         em.getTransaction().commit();
     }
     
-    public void modifier(Genre g){
+    public void modifier(Pays p){
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         
         em.getTransaction().begin();
-        em.merge(g);
+        em.merge(p);
         em.getTransaction().commit();
     }
 }
