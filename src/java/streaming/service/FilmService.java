@@ -23,6 +23,16 @@ public class FilmService {
         new FilmDAO().ajouter(f);
     }
     
+    public void ajouter(List<Film> films){
+        FilmDAO dao = new FilmDAO();
+        
+        films.forEach(film -> {
+            if (film.getTitre().length() > 0){
+                    dao.ajouter(film);
+            }
+        });
+    }
+    
     public void supprimer(long id){
         new FilmDAO().supprimer(id);
     }
